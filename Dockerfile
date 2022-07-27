@@ -13,4 +13,4 @@ WORKDIR /usr/app
 COPY index.js .
 COPY --from=builder /usr/app/node_modules .
 #Executem l'aplicació
-CMD [ "node", "run.js" ]
+CMD [ "node", "src/run.js" ]
