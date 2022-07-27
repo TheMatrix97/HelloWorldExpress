@@ -8,10 +8,12 @@ COPY package*.json .
 RUN npm install --omit=dev
 
 FROM node:16.16-${flavour} as release
+USER node
 WORKDIR /usr/app    
 #Copiem source files
-COPY src ./src
-COPY --from=builder /usr/app/node_modules ./node_modules
+COPY --chown=node src ./src
+COPY --chown=node --from=builder /usr/app/node_modules ./node_modules
+EXPOSE 3000
 #Executem l'aplicació
 CMD [ "node", "src/run.js" ]
 
