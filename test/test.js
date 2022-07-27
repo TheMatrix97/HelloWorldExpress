@@ -1,4 +1,4 @@
-var app = require("./index");
+var app = require("../src/index");
 var request = require('supertest');
 
 describe('GET /', function() {
