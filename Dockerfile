@@ -1,17 +1,14 @@
 FROM debian:bullseye
 WORKDIR /usr/app
 
+#Instal·lem curl per poder descarregar el setup de nodejs + nodejs
+RUN apt-get update && apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash -  && \
+    apt-get update  && \
+    apt-get install -y nodejs
+
 #Copiem tot a /usr/app
 COPY . /usr/app
-
-#Instal·lem curl per poder descarregar el setup de nodejs
-RUN apt-get update 
-RUN apt-get install -y curl
-
-#Instal·lem nodejs
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get update
-RUN apt-get install -y nodejs
 
 #Descarreguem les dependencies
 RUN npm install
