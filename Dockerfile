@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 ARG flavour=alpine3.16
 
 FROM node:16.16-${flavour} as builder
