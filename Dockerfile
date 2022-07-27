@@ -5,7 +5,7 @@ WORKDIR /usr/app
 #Copiem package-lock.json i package.json
 COPY package*.json .
 #Descarreguem les dependencies
-RUN npm install
+RUN npm install --omit=dev
 
 FROM node:16.16-${flavour} as release
 WORKDIR /usr/app
@@ -13,4 +13,4 @@ WORKDIR /usr/app
 COPY index.js .
 COPY --from=builder /usr/app/node_modules .
 #Executem l'aplicació
-CMD [ "node", "index.js" ]
+CMD [ "node", "run.js" ]
