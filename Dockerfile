@@ -17,4 +17,4 @@ RUN apt-get install -y nodejs
 RUN npm install
 
 #Executem l'aplicació
-CMD [ "node", "index.js" ]
+CMD [ "node", "run.js" ]
