@@ -14,7 +14,7 @@ RUN apt-get update
 RUN apt-get install -y nodejs
 
 #Descarreguem les dependencies
-RUN npm install
+RUN npm install --omit=dev
 
 #Executem l'aplicació
 CMD [ "node", "run.js" ]
