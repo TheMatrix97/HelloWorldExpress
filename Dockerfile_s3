@@ -1,0 +1,5 @@
+# syntax=docker/dockerfile:1
+FROM python:3
+RUN pip install awscli
+RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
+  aws configure list
